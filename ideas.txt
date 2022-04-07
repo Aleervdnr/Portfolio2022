@@ -1,0 +1,3 @@
+-Portfolio que sea tipo un sistema operativo, en version Desktop un S.O de PC y en Mobile un S.O de celular.
+
+-Ventana Sobre Mi: que sea tipo un editor de codigo, que sea vea tipeando el titulo
