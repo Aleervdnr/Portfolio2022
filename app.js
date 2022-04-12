@@ -18,7 +18,7 @@ class app {
     <div class="ventana__btn">
       <div class="ventana__button"><i class="fas fa-window-minimize"></i></div>
       <div class="ventana__button"><i class="far fa-window-restore"></i></div>
-      <div class="ventana__button"><i class="fas fa-times"></i></div>
+      <div class="ventana__button"><i class="fas fa-times" id="close"></i></div>
     </div>
         <div class="mydivheader myheader${appCount}"></div>
         <div class="ventana__container ">
@@ -29,8 +29,11 @@ class app {
     container.appendChild(app);
   }
 
-  cerrarApp() {
-
+  cerrarApp(elmnt) {
+    if(elmnt.id === "close"){
+      console.log("dentro")
+      elmnt.parentElement.parentElement.parentElement.remove()
+    }
   }
 
   moverApp() {
@@ -136,17 +139,86 @@ iconos.forEach((elmnt) => {
 
 const sobreMiBox = document.getElementById("sobreMi")
 const sobreMiVentana = new app("Sobre mi")
+let sobreMiVentanaCount = 0
 
 const sobreMiContent = document.createElement("div")
 sobreMiContent.innerHTML = `
 <h2 class="h2"><span class="maquina-escribir">Hola! soy Alejo Rivadeneira.</span></h2>
 <p class="p">Desarrollador Front-End autodidacta de argentina.
     Me gusta el desarrollo de paginas web y aprender constantemente.</p>
-    <img src="img/programador.svg" alt="">
+    
     <p class="p">Soy de Glew, Buenos Aires. Tengo 22 años y conoci el desarrollo web en el secundario tecnico donde me recibi, a mediados de 2021 comenzo a llamarme mucho la atencion ser desarrollador front-end y decidi profesionalizarme en este rubro, ya que en aquel tiempo de colegio solo lo veia como pasatiempo.
-        Quiero crecer como desarrollador, estoy constantemente practicando y capacitandome para poder trabajar de esto.</p>
+    </p>
+        <p class="p">Quiero crecer como desarrollador, estoy constantemente practicando y capacitandome para poder trabajar de esto.</p>
 ` 
-sobreMiBox.addEventListener("dblclick",()=>{
-    sobreMiVentana.agregarApp(sobreMiContent)
-    sobreMiVentana.moverApp()
+ sobreMiBox.addEventListener("dblclick",(e)=>{
+   if (sobreMiVentanaCount == 0) {
+     sobreMiVentana.agregarApp(sobreMiContent)
+     sobreMiVentana.moverApp()
+     sobreMiVentanaCount = 1;
+   } else {
+    alert("La app ya está abierta");
+   }
+ })
+
+ document.querySelector("body").addEventListener("click", (e) => {
+  sobreMiVentana.cerrarApp(e.target)
+ })
+
+
+
+const educacionBox = document.getElementById("educacion")
+const educacionVentana = new app("Educación")
+let educacionVentanaCount = 0
+
+const educacionContent = document.createElement("div")
+educacionContent.innerHTML = `
+<h2> asd </h2>
+`
+educacionBox.addEventListener("dblclick", ()=>{
+  if (educacionVentanaCount == 0) {
+    educacionVentana.agregarApp(educacionContent)
+    educacionVentana.moverApp()
+    educacionVentanaCount = 1;
+  } else {
+    alert("La app ya está abierta");
+  }
 })
+
+const habilidadesBox = document.getElementById("habilidades")
+const habilidadesVentana = new app("Habilidades")
+let habilidadesVentanaCount = 0
+
+const habilidadesContent = document.createElement("div")
+habilidadesContent.innerHTML = `
+<h2> asd </h2>
+`
+habilidadesBox.addEventListener("dblclick", ()=>{
+  if (habilidadesVentanaCount == 0) {
+    habilidadesVentana.agregarApp(habilidadesContent)
+    habilidadesVentana.moverApp()
+    habilidadesVentanaCount = 1;
+  } else {
+    alert("La app ya está abierta");
+  }
+
+})
+
+const proyectosBox = document.getElementById("proyectos")
+const proyectosVentana = new app("Proyectos")
+let proyectosVentanaCount = 0
+
+const proyectosContent = document.createElement("div")
+proyectosContent.innerHTML = `
+<h2> asd </h2>
+`
+proyectosBox.addEventListener("dblclick", ()=>{
+  if (proyectosVentanaCount == 0) {
+    proyectosVentana.agregarApp(proyectosContent)
+    proyectosVentana.moverApp()
+    proyectosVentanaCount = 1;
+  } else {
+    alert("La app ya está abierta");
+  }
+})
+

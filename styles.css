@@ -93,6 +93,7 @@ body {
     "header"
     "contenido";
   grid-template-rows: 30px 1fr;
+  z-index: 100;
 }
 
 .ventana__title {
@@ -115,6 +116,7 @@ body {
 .ventana__button {
   padding: 5px;
   transition: background-color 0.5s;
+  cursor: pointer;
 }
 
 .ventana__button:nth-child(1):hover,
@@ -135,7 +137,8 @@ body {
   color: white;
   overflow: auto;
   padding: 10px;
-  text-align: center;
+  text-align: left;
+  font-family: monospace;
 }
 
 .mydivheader {
@@ -167,17 +170,17 @@ body {
 /*Efecto tipeo*/
 .maquina-escribir {
   position: relative;
-  padding-right: 15px;
+  padding-right: 5px;
 }
 
 .maquina-escribir::after {
   content: "";
-  border-left: 3px solid white;
+  border-left: 3px solid orange;
   background-color: rgb(21, 47, 75);
   right: 0;
   height: 100%;
   position: absolute;
-  animation: maquinaescribir 4s infinite steps(28);
+  animation: maquinaescribir 4s steps(28);
 }
 
 @keyframes maquinaescribir {
@@ -188,4 +191,21 @@ body {
     to{
         width: 0%;
     }
+}
+
+.ventana__container h2{
+  color: orange;
+}
+
+.p{
+  color: greenyellow;
+  font-size: 15px;
+}
+
+.p:nth-of-type(2){
+  color: orangered;
+}
+
+.p:last-of-type{
+  color: deepskyblue;
 }
