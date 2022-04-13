@@ -33,6 +33,7 @@ class app {
     if(elmnt.id === "close"){
       console.log("dentro")
       elmnt.parentElement.parentElement.parentElement.remove()
+      sobreMiVentanaCount = 0
     }
   }
 
